@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+  const genres = [...new Set(allPosts.map((p) => p.data.genre))];
+  return genres.map((genre) => ({
+    params: { genre },
+    props: {
+      posts: allPosts
+        .filter((p) => p.data.genre === genre)
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+    },
+  }));
+}
+
+const { genre } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout title={`「${genre}」の記事一覧`} description={`ジャンル「${genre}」に分類された記事の一覧です。`}>
+  <h1>「{genre}」の記事一覧</h1>
+  <ul class="post-list">
+    {posts.map((post) => (
+      <li>
+        <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+        <p class="excerpt">{post.data.description}</p>
+      </li>
+    ))}
+  </ul>
+  <p><a href="/blog/">← 記事一覧に戻る</a></p>
+</BaseLayout>
+
+<style>
+  .post-list { list-style: none; padding: 0; }
+  .post-list li { padding: 1.25rem 0; border-bottom: 1px solid #eee; }
+  .post-list a { font-size: 1.1rem; font-weight: 600; color: #1a4d8f; text-decoration: none; }
+  .excerpt { color: #555; margin: 0.4rem 0; }
+</style>
