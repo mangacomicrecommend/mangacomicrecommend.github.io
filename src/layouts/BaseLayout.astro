@@ -64,6 +64,15 @@ const siteName = 'マンガ分類ノート'; // ★ サイト名に変更して�
     )}
 
     <slot name="head" />
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9N9JJNPX5T"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9N9JJNPX5T');
+    </script>
   </head>
   <body>
     <header class="site-header">
