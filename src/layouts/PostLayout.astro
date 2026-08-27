@@ -1,0 +1,57 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  genre: string;
+  tropes: string[];
+  tone?: string;
+}
+
+const { title, description, pubDate, updatedDate, genre, tropes, tone } = Astro.props;
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title={title} description={description} pubDate={pubDate} updatedDate={updatedDate} type="article">
+  <article>
+    <header class="post-header">
+      <h1>{title}</h1>
+      <p class="meta">
+        <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        {updatedDate && <span> (更新: {formatDate(updatedDate)})</span>}
+      </p>
+      <p class="tags">
+        <a class="tag genre-tag" href={`/genre/${encodeURIComponent(genre)}/`}>{genre}</a>
+        {tropes.map((t) => <span class="tag">{t}</span>)}
+        {tone && <span class="tag tone-tag">{tone}</span>}
+      </p>
+    </header>
+    <div class="post-body">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post-header { margin-bottom: 2rem; }
+  .meta { color: #888; font-size: 0.9rem; }
+  .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+  .tag {
+    display: inline-block;
+    background: #f0f2f5;
+    color: #444;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    text-decoration: none;
+  }
+  .genre-tag { background: #dbe9ff; color: #1a4d8f; }
+  .tone-tag { background: #fdeedc; color: #8a5a1f; }
+  .post-body :global(h2) { margin-top: 2.5rem; }
+  .post-body :global(img) { border-radius: 8px; margin: 1rem 0; }
+</style>
