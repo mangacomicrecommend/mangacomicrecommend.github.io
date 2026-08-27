@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const recentPosts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+---
+
+<BaseLayout title="トップページ" description="ジャンル・トロープ別にマンガを紹介するブログです。">
+  <section class="hero">
+    <h1>マンガ分類ノート</h1>
+    <p>ジャンル・トロープ別に、おすすめマンガを紹介しています。</p>
+  </section>
+
+  <section>
+    <h2>新着記事</h2>
+    <ul class="post-list">
+      {recentPosts.map((post) => (
+        <li>
+          <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+        </li>
+      ))}
+    </ul>
+    <p><a href="/blog/">記事一覧を見る →</a></p>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding: 2rem 0; }
+  .post-list { list-style: none; padding: 0; }
+  .post-list li { padding: 0.6rem 0; border-bottom: 1px solid #eee; }
+  .post-list a { color: #1a4d8f; text-decoration: none; font-weight: 600; }
+</style>
