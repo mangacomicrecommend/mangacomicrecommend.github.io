@@ -1,0 +1,70 @@
+name: Generate blog post draft (AI + web search)
+
+on:
+  workflow_dispatch:
+    inputs:
+      genre:
+        description: "ジャンル(空欄ならキューの先頭を自動で使用)"
+        required: false
+      tropes:
+        description: "トロープ/サブジャンル(カンマ区切り)"
+        required: false
+      tone:
+        description: "トーン・テイスト"
+        required: false
+      notes:
+        description: "補足メモ・書いてほしい切り口など"
+        required: false
+  # ★ 将来ここを有効にすると、毎週自動で1本ドラフトが作られるようになります。
+  #    (今は手動実行のみにするため無効化しています)
+  # schedule:
+  #   - cron: "0 21 * * 0" # 毎週月曜 朝6時(JST) ※UTC指定のため21時=翌6時
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install script dependencies
+        run: npm install --no-save @anthropic-ai/sdk js-yaml
+
+      - name: Generate draft post
+        id: generate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          INPUT_GENRE: ${{ github.event.inputs.genre }}
+          INPUT_TROPES: ${{ github.event.inputs.tropes }}
+          INPUT_TONE: ${{ github.event.inputs.tone }}
+          INPUT_NOTES: ${{ github.event.inputs.notes }}
+        run: node scripts/generate-post.mjs
+
+      - name: Open Pull Request for review
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "記事ドラフトを自動生成: ${{ steps.generate.outputs.post_title }}"
+          title: "[レビュー待ち] ${{ steps.generate.outputs.post_title }}"
+          body: |
+            AIがWeb検索をもとに作成した記事ドラフトです。
+
+            **公開前に必ず確認してください:**
+            - [ ] 作品名・巻数・あらすじなど、事実関係に誤りがないか
+            - [ ] `<!-- 要確認: ... -->` というコメントが本文中に残っていないか(あれば該当箇所を修正・削除)
+            - [ ] 文章のトーンや表現が自分の意図と合っているか
+
+            問題なければ、記事ファイル冒頭の `draft: true` を `draft: false` に変更してからマージしてください。
+            マージすると自動でサイトに公開されます。
+          branch: "draft-post/${{ github.run_id }}"
+          add-paths: |
+            src/content/posts/*.md
+            src/data/topics-queue.yml
