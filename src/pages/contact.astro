@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="お問い合わせ" description="当サイトへのお問い合わせはこちらのフォームからお願いします。">
+  <article>
+    <h1>お問い合わせ</h1>
+    <p>
+      当サイトに関するご意見・ご質問・訂正のご依頼などは、以下のフォームよりお送りください。
+      メールアドレスの公開は行っておらず、フォーム経由でのみお問い合わせを受け付けています。
+    </p>
+
+    <div class="form-wrap">
+      <!--
+        ここにGoogleフォームの埋め込みコード(<iframe ...>...</iframe>)を貼り付けてください。
+        Googleフォームの編集画面 →「送信」→ 埋め込み(<>アイコン)タブ から取得できます。
+      -->
+      <p class="placeholder">(ここにお問い合わせフォームが表示されます)</p>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .form-wrap {
+    margin-top: 1.5rem;
+  }
+  .form-wrap iframe {
+    width: 100%;
+    max-width: 640px;
+    border: none;
+    min-height: 900px;
+  }
+  .placeholder {
+    color: #999;
+    font-style: italic;
+    padding: 2rem;
+    text-align: center;
+    background: #f7f7f7;
+    border-radius: 8px;
+  }
+</style>
