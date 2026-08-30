@@ -64,15 +64,6 @@ const siteName = 'マンガ分類ノート'; // ★ サイト名に変更して�
     )}
 
     <slot name="head" />
-
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9N9JJNPX5T"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-9N9JJNPX5T');
-    </script>
   </head>
   <body>
     <header class="site-header">
@@ -86,6 +77,11 @@ const siteName = 'マンガ分類ノート'; // ★ サイト名に変更して�
     </main>
     <footer class="site-footer">
       <p>&copy; {new Date().getFullYear()} {siteName}</p>
+      <p class="footer-links">
+        <a href="/privacy-policy/">プライバシーポリシー</a>
+        ・
+        <a href="/contact/">お問い合わせ</a>
+      </p>
     </footer>
   </body>
 </html>
@@ -128,6 +124,9 @@ const siteName = 'マンガ分類ノート'; // ★ サイト名に変更して�
     padding: 1.5rem 0;
     color: #888;
     font-size: 0.85rem;
+  }
+  .footer-links a {
+    color: #888;
   }
   img { max-width: 100%; height: auto; }
   h1, h2, h3 { line-height: 1.4; }
