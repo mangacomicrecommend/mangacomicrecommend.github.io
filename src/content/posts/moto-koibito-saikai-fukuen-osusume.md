@@ -5,7 +5,7 @@ pubDate: 2026-09-01
 genre: "恋愛"
 tropes: ["元恋人再会ルート", "職場・上司ルート"]
 tone: "切ない・エモい"
-draft: true
+draft: false
 ---
 
 ## この記事で紹介する作品の傾向
