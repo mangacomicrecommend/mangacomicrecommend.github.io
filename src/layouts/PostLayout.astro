@@ -1,5 +1,21 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import ContentScales from '../components/ContentScales.astro';
+
+interface WorkEntry {
+  title: string;
+  image?: string;
+  imageAlt?: string;
+  description: string;
+  platform?: string;
+  affiliateUrl?: string;
+}
+
+interface ScaleItem {
+  label: string;
+  oppositeLabel: string;
+  value: number;
+}
 
 interface Props {
   title: string;
@@ -9,15 +25,41 @@ interface Props {
   genre: string;
   tropes: string[];
   tone?: string;
+  coverImage?: string;
+  coverImageAlt?: string;
+  works?: WorkEntry[];
+  scales?: ScaleItem[];
 }
 
-const { title, description, pubDate, updatedDate, genre, tropes, tone } = Astro.props;
+const {
+  title, description, pubDate, updatedDate, genre, tropes, tone,
+  coverImage, coverImageAlt, works, scales,
+} = Astro.props;
 
 const formatDate = (d: Date) =>
   d.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// 紹介作品リストをItemListとして構造化データに含める(AI検索・リッチリザルト対策)
+const itemListJsonLd = works && works.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: works.map((w, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: w.title,
+    image: w.image,
+  })),
+} : null;
 ---
 
-<BaseLayout title={title} description={description} pubDate={pubDate} updatedDate={updatedDate} type="article">
+<BaseLayout
+  title={title}
+  description={description}
+  pubDate={pubDate}
+  updatedDate={updatedDate}
+  type="article"
+  coverImage={coverImage}
+>
   <article>
     <header class="post-header">
       <h1>{title}</h1>
@@ -30,11 +72,51 @@ const formatDate = (d: Date) =>
         {tropes.map((t) => <span class="tag">{t}</span>)}
         {tone && <span class="tag tone-tag">{tone}</span>}
       </p>
+      {coverImage && (
+        <img class="cover-image" src={coverImage} alt={coverImageAlt || title} loading="eager" />
+      )}
     </header>
+
     <div class="post-body">
       <slot />
     </div>
+
+    {scales && scales.length > 0 && <ContentScales scales={scales} />}
+
+    {works && works.length > 0 && (
+      <section class="works-grid" aria-label="紹介作品一覧">
+        <h2>紹介作品一覧</h2>
+        <ol class="works-list">
+          {works.map((w) => (
+            <li class="work-card">
+              {w.image && (
+                <img
+                  src={w.image}
+                  alt={w.imageAlt || w.title}
+                  loading="lazy"
+                  width="140"
+                />
+              )}
+              <div class="work-info">
+                <h3>{w.title}</h3>
+                <p class="work-desc">{w.description}</p>
+                {w.platform && <p class="work-platform">読める場所: {w.platform}</p>}
+                {w.affiliateUrl && (
+                  <a class="work-link" href={w.affiliateUrl} target="_blank" rel="noopener noreferrer sponsored">
+                    詳細を見る
+                  </a>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
   </article>
+
+  {itemListJsonLd && (
+    <script type="application/ld+json" slot="head" set:html={JSON.stringify(itemListJsonLd)} />
+  )}
 </BaseLayout>
 
 <style>
@@ -52,6 +134,41 @@ const formatDate = (d: Date) =>
   }
   .genre-tag { background: #dbe9ff; color: #1a4d8f; }
   .tone-tag { background: #fdeedc; color: #8a5a1f; }
+  .cover-image {
+    width: 100%;
+    max-height: 360px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 1.25rem;
+  }
   .post-body :global(h2) { margin-top: 2.5rem; }
   .post-body :global(img) { border-radius: 8px; margin: 1rem 0; }
+
+  .works-grid { margin-top: 3rem; }
+  .works-list { list-style: none; padding: 0; margin: 1.25rem 0; }
+  .work-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  .work-card img {
+    flex: 0 0 auto;
+    width: 100px;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+  .work-info h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+  .work-desc { margin: 0 0 0.4rem; color: #444; font-size: 0.92rem; line-height: 1.7; }
+  .work-platform { margin: 0 0 0.4rem; color: #888; font-size: 0.82rem; }
+  .work-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #fff;
+    background: #1a4d8f;
+    padding: 0.35rem 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+  }
 </style>
