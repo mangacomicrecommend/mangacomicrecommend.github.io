@@ -6,7 +6,7 @@ genre: "スポーツ"
 tropes: ["高校野球", "記憶喪失設定"]
 tone: "コメディ寄り"
 tags: ["頭脳戦", "アニメ化"]
-draft: true
+draft: false
 scales:
   - label: "全年齢向け"
     oppositeLabel: "大人向け"
