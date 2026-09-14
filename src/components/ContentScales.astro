@@ -1,0 +1,94 @@
+---
+interface ScaleItem {
+  label: string;
+  oppositeLabel: string;
+  value: number; // 1-10
+}
+
+interface Props {
+  scales: ScaleItem[];
+}
+
+const { scales } = Astro.props;
+---
+
+<div class="scales">
+  <p class="scales-title">この作品の傾向(Claudeによる目安・10段階)</p>
+  {scales.map((s) => {
+    const percent = ((s.value - 1) / 9) * 100; // 1→0%, 10→100%
+    return (
+      <div class="scale-row">
+        <div class="scale-labels">
+          <span>{s.label}</span>
+          <span>{s.oppositeLabel}</span>
+        </div>
+        <div class="scale-track">
+          <div class="scale-fill" style={`width: ${percent}%`}></div>
+          <div class="scale-marker" style={`left: ${percent}%`}></div>
+        </div>
+      </div>
+    );
+  })}
+  <p class="scales-note">
+    ※感覚的な目安です。実際の読み味とは印象が異なる場合があります。
+  </p>
+</div>
+
+<style>
+  .scales {
+    background: #f7f9fc;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .scales-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
+    margin: 0 0 1rem 0;
+  }
+  .scale-row {
+    margin-bottom: 1rem;
+  }
+  .scale-row:last-of-type {
+    margin-bottom: 0.5rem;
+  }
+  .scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: #555;
+    margin-bottom: 0.3rem;
+  }
+  .scale-track {
+    position: relative;
+    height: 8px;
+    background: #e0e4ea;
+    border-radius: 999px;
+    overflow: visible;
+  }
+  .scale-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #9db8dd;
+    border-radius: 999px;
+  }
+  .scale-marker {
+    position: absolute;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    background: #1a4d8f;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  }
+  .scales-note {
+    font-size: 0.75rem;
+    color: #999;
+    margin: 0.75rem 0 0 0;
+  }
+</style>
