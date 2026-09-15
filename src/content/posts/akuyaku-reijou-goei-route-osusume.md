@@ -20,7 +20,7 @@ scales:
 ---
 
 <div class="affiliate-cta">
-  <a href="【ここにアフィリエイトリンク】" class="cta-button" rel="sponsored noopener" target="_blank">
+  <a href="https://www.amazon.co.jp/s?k=%E8%AD%B7%E8%A1%9B%E9%A8%8E%E5%A3%AB%E3%81%AF%E5%A7%AB%E3%81%B8%E3%81%AE%E6%84%9B%E3%81%8C%E9%87%8D%E3%81%99%E3%81%8E%E3%82%8B&i=digital-text&tag=bazisite-22" class="cta-button" rel="sponsored noopener" target="_blank">
     今すぐチェックする
   </a>
 </div>
@@ -36,7 +36,7 @@ scales:
 無実の罪で断罪され命を落とした王女アデリナが、時を巻き戻り再び同じ日々を迎える物語です。今世では大人しく生きようと改心した彼女を救ったのは、護衛騎士ニール。彼の求婚をきっかけに、二人の関係が大きく動き出します。回帰(タイムリープ)要素と護衛騎士ロマンスを両方楽しめる作品です。
 
 <div class="affiliate-cta">
-  <a href="【ここにアフィリエイトリンク】" class="cta-button" rel="sponsored noopener" target="_blank">
+  <a href="https://www.amazon.co.jp/s?k=%E8%AD%B7%E8%A1%9B%E9%A8%8E%E5%A3%AB%E3%81%AF%E5%A7%AB%E3%81%B8%E3%81%AE%E6%84%9B%E3%81%8C%E9%87%8D%E3%81%99%E3%81%8E%E3%82%8B&i=digital-text&tag=bazisite-22" class="cta-button" rel="sponsored noopener" target="_blank">
     今すぐチェックする
   </a>
 </div>
