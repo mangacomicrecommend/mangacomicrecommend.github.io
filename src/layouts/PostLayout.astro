@@ -23,6 +23,12 @@ interface RelatedPost {
   description: string;
 }
 
+interface NextRead {
+  id: string;
+  title: string;
+  reason: string;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -37,11 +43,13 @@ interface Props {
   works?: WorkEntry[];
   scales?: ScaleItem[];
   relatedPosts?: RelatedPost[];
+  points?: string[];
+  nextReads?: NextRead[];
 }
 
 const {
   title, description, pubDate, updatedDate, genre, tropes, tone, tags,
-  coverImage, coverImageAlt, works, scales, relatedPosts,
+  coverImage, coverImageAlt, works, scales, relatedPosts, points, nextReads,
 } = Astro.props;
 
 const formatDate = (d: Date) =>
@@ -71,6 +79,13 @@ const formatDate = (d: Date) =>
       )}
     </header>
 
+    {points && points.length > 0 && (
+      <aside class="post-points">
+        <h2>この記事のポイント</h2>
+        <ul>{points.map((p) => <li>{p}</li>)}</ul>
+      </aside>
+    )}
+
     <div class="post-body">
       <slot />
     </div>
@@ -96,6 +111,20 @@ const formatDate = (d: Date) =>
     )}
   </article>
 
+  {nextReads && nextReads.length > 0 && (
+    <section class="next-reads">
+      <h2>次に読むなら</h2>
+      <ul>
+        {nextReads.map((n) => (
+          <li>
+            <a href={`/blog/${n.id}/`}>{n.title}</a>
+            <p>{n.reason}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
   {relatedPosts && relatedPosts.length > 0 && (
     <section class="related-posts">
       <h2>関連記事</h2>
@@ -112,6 +141,19 @@ const formatDate = (d: Date) =>
 </BaseLayout>
 
 <style>
+  .post-points {
+    background: #f7f9fc;
+    border-left: 4px solid #6b7fd7;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+  }
+  .post-points h2 { font-size: 1.05rem; margin: 0 0 0.5rem; }
+  .post-points ul { margin: 0; padding-left: 1.2rem; }
+  .post-points li { margin: 0.3rem 0; line-height: 1.6; }
+  .next-reads { margin-top: 2.5rem; }
+  .next-reads li { margin-bottom: 1rem; }
+  .next-reads p { color: #555; font-size: 0.9rem; margin: 0.2rem 0 0; }
   .post-header { margin-bottom: 2rem; }
   .meta { color: #888; font-size: 0.9rem; }
   .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
