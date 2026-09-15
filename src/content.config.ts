@@ -21,6 +21,15 @@ const scaleEntry = z.object({
   value: z.number().min(1).max(10), // 1=label側に極端、10=oppositeLabel側に極端
 });
 
+// 「次に読むなら」導線。関連記事(自動表示)とは役割が異なり、
+// 編集者が「なぜ次に読むとよいか」を明示する意図的な導線。
+// 適切な記事がない場合は設定しない(空欄で非表示)。
+const nextReadEntry = z.object({
+  id: z.string(),      // 記事のスラッグ(例: boukyaku-battery-review)
+  title: z.string(),   // 表示する記事タイトル
+  reason: z.string(),  // なぜ次に読むとよいかを1文で
+});
+
 const posts = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/posts' }),
   schema: z.object({
@@ -36,6 +45,8 @@ const posts = defineCollection({
     coverImageAlt: z.string().optional(),
     works: z.array(workEntry).optional(), // 紹介作品リスト(画像カードとして自動描画)
     scales: z.array(scaleEntry).optional(), // 作品傾向スケール(単一作品レビュー向け)
+    points: z.array(z.string()).optional(), // この記事のポイント(3〜5項目)
+    nextReads: z.array(nextReadEntry).optional(), // 次に読むなら(1〜2件)
   }),
 });
 
