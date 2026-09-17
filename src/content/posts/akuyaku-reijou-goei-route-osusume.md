@@ -39,14 +39,7 @@ scales:
 
 **回帰(タイムリープ)要素と護衛騎士ロマンスを両方楽しめる**のがこの作品の強みです。4作品のなかで最もシリアス寄りで、切なさを求めるならここから読むのがおすすめです。
 
-原作は結生まひろさん、イラストはおの秋人さん。コミックシーモアで配信中です。
-
-<div class="affiliate-cta">
-  <a href="https://www.amazon.co.jp/s?k=%E8%AD%B7%E8%A1%9B%E9%A8%8E%E5%A3%AB%E3%81%AF%E5%A7%AB%E3%81%B8%E3%81%AE%E6%84%9B%E3%81%8C%E9%87%8D%E3%81%99%E3%81%8E%E3%82%8B&i=digital-text&tag=bazisite-22" class="cta-button" rel="sponsored noopener" target="_blank">
-    Amazonで探してみる
-  </a>
-  <p class="cta-note">Amazonには小説版が並びます。コミック版はコミックシーモアで配信中です</p>
-</div>
+原作は結生まひろさん、イラストはおの秋人さん。**コミック版はコミックシーモアで配信中**です。
 
 ### 周囲からはぐうたら聖女と呼ばれていますがなぜか専属護衛騎士が溺愛してきます
 
@@ -58,13 +51,26 @@ scales:
 
 政略結婚から出戻った王女アデルと、幼い頃に淡い想いを抱いていた護衛騎士ルイスとの再会ラブです。
 
-**護衛騎士ルートと元恋人再会ルート、両方の魅力を併せ持っています。** 一度離れた二人が距離を測り直す過程が読みどころです。性描写はありません。コミックシーモアとKindleで配信されています。
+**護衛騎士ルートと元恋人再会ルート、両方の魅力を併せ持っています。** 一度離れた二人が距離を測り直す過程が読みどころです。性描写はありません。
+<div class="affiliate-cta">
+  <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3781619&pid=892707162&vc_url=https%3A%2F%2Fbooklive.jp%2Fproduct%2Findex%2Ftitle_id%2F1485723%2Fvol_no%2F001%3Futm_source%3Dspad%26utm_medium%3Daffiliate%26utm_campaign%3D102%26utm_content%3Dnormal" class="cta-button" rel="nofollow sponsored noopener" target="_blank"><img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3781619&pid=892707162" height="1" width="0" border="0">
+    コミック版を試し読みする
+  </a>
+  <p class="cta-note">小説版も配信されていますが、こちらはコミック版です</p>
+</div>
+
 
 ### 騎士団長の息子は悪役令嬢を溺愛する
 
 前世の記憶を取り戻した騎士団長の息子エクスが、婚約破棄されたばかりの悪役令嬢アリスに求婚するラブファンタジーです。
 
-厳密には護衛騎士本人ではなく騎士団長の子息ですが、**守る側が一方的に溺愛してくる構図は同じ**です。コメディ寄りなので、テンポよく読みたいときに。めちゃコミックで配信中です。
+厳密には護衛騎士本人ではなく騎士団長の子息ですが、**守る側が一方的に溺愛してくる構図は同じ**です。コメディ寄りなので、テンポよく読みたいときに。
+<div class="affiliate-cta">
+  <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3781619&pid=892707162&vc_url=https%3A%2F%2Fbooklive.jp%2Fproduct%2Findex%2Ftitle_id%2F20043717%2Fvol_no%2F001%3Futm_source%3Dspad%26utm_medium%3Daffiliate%26utm_campaign%3D102%26utm_content%3Dnormal" class="cta-button" rel="nofollow sponsored noopener" target="_blank"><img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3781619&pid=892707162" height="1" width="0" border="0">
+    コミック版を試し読みする
+  </a>
+</div>
+
 
 ## 選び方
 
