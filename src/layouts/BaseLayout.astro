@@ -72,6 +72,12 @@ const siteName = 'マンガ分類ノート'; // ★ サイト名に変更して�
       gtag('config', 'G-9N9JJNPX5T');
     </script>
 
+    <!-- ValueCommerce LinkSwitch -->
+    <script is:inline type="text/javascript">
+      var vc_pid = "892714035";
+    </script>
+    <script is:inline type="text/javascript" src="//aml.valuecommerce.com/vcdal.js" async></script>
+
     <slot name="head" />
   </head>
   <body>
@@ -81,6 +87,7 @@ const siteName = 'マンガ分類ノート'; // ★ サイト名に変更して�
         <a href="/blog/">記事一覧</a>
       </nav>
     </header>
+    <p class="pr-note">当サイトはアフィリエイト広告(PR)を利用しています</p>
     <main>
       <slot />
     </main>
@@ -123,6 +130,11 @@ const siteName = 'マンガ分類ノート'; // ★ サイト名に変更して�
   .site-header a {
     color: #444;
     text-decoration: none;
+  }
+  .pr-note {
+    font-size: 0.75rem;
+    color: #888;
+    margin: 0.5rem 0 0;
   }
   main {
     padding: 2rem 0;
