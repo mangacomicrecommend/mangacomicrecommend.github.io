@@ -2,7 +2,7 @@
 title: "にぶんのいち夫婦は何巻まで?本編全8巻＋スピンオフ9巻・どこまで読めば判断できるか"
 description: "夫の浮気を疑った妻が真相に迫る「にぶんのいち夫婦」。本編は全8巻で完結し、8年後を描くスピンオフの9巻が出ています。妻視点と夫視点で構成が変わる作品なので、どこまで読めば自分に合うか判断できるかを実際に読んだ感想からまとめました。"
 pubDate: 2026-09-16
-updatedDate: 2026-09-17
+updatedDate: 2026-09-26
 genre: "恋愛(夫婦・離婚)"
 tropes: ["浮気・不倫", "友人の裏切り", "視点切り替え構成"]
 tone: "シリアス"
@@ -51,7 +51,7 @@ scales:
 | ジャンル | 恋愛ミステリー |
 | 備考 | 2021年にテレビ東京でドラマ化 |
 
-分冊版も配信されています。1話ずつ試したい場合はそちらが向いています。
+分冊版も配信されています。1話ずつ試したい場合はそちらが向いています(Renta!では分冊版の1〜8話が無料で読めます。2026年9月時点)。
 
 ## あらすじ
 
@@ -64,10 +64,11 @@ scales:
 文は親友たちの助けを借りながら真相を探っていきますが、**嘘と真実が入れ替わり続ける**のがこの作品の厄介なところです。
 
 <div class="affiliate-cta">
-  <a href="https://www.amazon.co.jp/dp/B07VG8L5J5?tag=bazisite-22" class="cta-button" rel="sponsored noopener" target="_blank">
-    Amazonで1巻をチェック
+  <a href="https://renta.papy.co.jp/renta/sc/frm/item/191856/" class="cta-button" rel="sponsored noopener" target="_blank">
+    Renta!で1〜8話を無料で読む
   </a>
-  <p class="cta-note">Kindle版・期間限定の無料お試し版が出ていることもあります</p>
+  <p class="cta-note">分冊版の1〜8話が無料(2026年9月時点)</p>
+  <p class="cta-note"><a href="https://www.amazon.co.jp/dp/B07VG8L5J5?tag=bazisite-22" rel="sponsored noopener" target="_blank">Amazon(Kindle版)で1巻をチェック</a></p>
 </div>
 
 ## この作品の構成
@@ -130,9 +131,11 @@ scales:
 - 回想が長く続くのが苦手な人
 
 <div class="affiliate-cta">
-  <a href="https://www.amazon.co.jp/dp/B07VG8L5J5?tag=bazisite-22" class="cta-button" rel="sponsored noopener" target="_blank">
+  <a href="https://renta.papy.co.jp/renta/sc/frm/item/191858/" class="cta-button" rel="sponsored noopener" target="_blank">
     まずは5巻の頭まで試してみる
   </a>
+  <p class="cta-note">Renta!の単行本(巻読み)版へ移動します</p>
+  <p class="cta-note"><a href="https://www.amazon.co.jp/dp/B07VG8L5J5?tag=bazisite-22" rel="sponsored noopener" target="_blank">Amazon(Kindle版)で読む</a></p>
 </div>
 
 ## 似た読後感の作品
