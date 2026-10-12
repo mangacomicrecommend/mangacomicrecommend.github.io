@@ -1,5 +1,5 @@
 /*! マンガ重複購入チェッカー Service Worker (c) 2026 マンガ分類ノート All rights reserved. 無断転載・改変・再配布を禁じます。 */
-const CACHE = "manga-checker-v2.3.1";
+const CACHE = "manga-checker-v2.4.2";
 const ASSETS = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./icon-maskable-512.png", "./apple-touch-icon.png"];
 
 self.addEventListener("install", e => {
