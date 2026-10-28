@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://mangacomicrecommend.github.io',
+  site: 'https://manga-category.com',
   integrations: [sitemap()],
 });
