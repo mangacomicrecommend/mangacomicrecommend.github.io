@@ -100,13 +100,13 @@ const formatDate = (d: Date) =>
 
     {showTantei && (
       <aside class="tantei-cta">
+        <span class="pr-label">PR</span>
         <h2>浮気の疑いを探偵に相談するなら|浮気調査の探偵・興信所を比較する方法</h2>
         <p>作品の主人公のように、パートナーや配偶者の浮気を疑いながら一人で抱え込んでしまう方。証拠も相談相手もないまま考え続けるより、浮気調査を扱う探偵に状況を話して、取れる選択肢を整理するという方法もあります。「離婚」「修復」どちらの選択をするにしても証拠を押さえておくことはかなり重要。</p>
         <p>ただ、探偵事務所や興信所の料金や調査内容を自分で比較して選ぶのは大変です。</p>
         <p>浮気調査の探偵選びに迷う場合は、アンケート形式で条件を選択していくと自分に合った探偵社を無料で紹介してもらえるサービスもあります。</p>
         <p>まずは「浮気危険度診断」をしてみてもいいかも。</p>
         <div class="tantei-link" set:html={A8_TANTEI_LINK} />
-        <p class="cta-note">探偵の窓口(広告)のページへ移動します</p>
       </aside>
     )}
 
@@ -190,7 +190,18 @@ const formatDate = (d: Date) =>
     border-radius: 999px;
     text-decoration: none !important;
   }
-  .tantei-cta .cta-note { text-align: center; }
+  .tantei-cta { position: relative; }
+  .pr-label {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.6rem;
+    font-size: 0.7rem;
+    color: #888;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 0 0.3rem;
+    line-height: 1.4;
+  }
   .next-reads { margin-top: 2.5rem; }
   .next-reads li { margin-bottom: 1rem; }
   .next-reads p { color: #555; font-size: 0.9rem; margin: 0.2rem 0 0; }
