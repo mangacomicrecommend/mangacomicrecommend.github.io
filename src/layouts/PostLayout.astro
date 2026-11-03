@@ -52,6 +52,14 @@ const {
   coverImage, coverImageAlt, works, scales, relatedPosts, points, nextReads,
 } = Astro.props;
 
+// ==== 探偵の窓口(A8)の導線 ====
+// 「浮気・不倫」の作品分類(tropes)を持つ記事だけに表示する。
+// リンクのコードはA8.netの広告リンク作成画面(素材ID001)からコピーしたもの(2026-11-03)。
+const TANTEI_TROPE = '浮気・不倫';
+const A8_TANTEI_LINK = `<a href="https://px.a8.net/svt/ejp?a8mat=4BGCEZ+BFZZEA+5YAQ+5YJRM" rel="nofollow">相談無料・業界最安水準！厳選探偵をワンストップで紹介【探偵の窓口】</a>
+<img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=4BGCEZ+BFZZEA+5YAQ+5YJRM" alt="">`;
+const showTantei = tropes.includes(TANTEI_TROPE);
+
 const formatDate = (d: Date) =>
   d.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
@@ -89,6 +97,18 @@ const formatDate = (d: Date) =>
     <div class="post-body">
       <slot />
     </div>
+
+    {showTantei && (
+      <aside class="tantei-cta">
+        <h2>浮気の疑いを探偵に相談するなら|浮気調査の探偵・興信所を比較する方法</h2>
+        <p>作品の主人公のように、パートナーや配偶者の浮気を疑いながら一人で抱え込んでしまう方。証拠も相談相手もないまま考え続けるより、浮気調査を扱う探偵に状況を話して、取れる選択肢を整理するという方法もあります。「離婚」「修復」どちらの選択をするにしても証拠を押さえておくことはかなり重要。</p>
+        <p>ただ、探偵事務所や興信所の料金や調査内容を自分で比較して選ぶのは大変です。</p>
+        <p>浮気調査の探偵選びに迷う場合は、アンケート形式で条件を選択していくと自分に合った探偵社を無料で紹介してもらえるサービスもあります。</p>
+        <p>まずは「浮気危険度診断」をしてみてもいいかも。</p>
+        <div class="tantei-link" set:html={A8_TANTEI_LINK} />
+        <p class="cta-note">探偵の窓口(広告)のページへ移動します</p>
+      </aside>
+    )}
 
     {scales && scales.length > 0 && <ContentScales scales={scales} />}
 
@@ -151,6 +171,26 @@ const formatDate = (d: Date) =>
   .post-points h2 { font-size: 1.05rem; margin: 0 0 0.5rem; }
   .post-points ul { margin: 0; padding-left: 1.2rem; }
   .post-points li { margin: 0.3rem 0; line-height: 1.6; }
+  .tantei-cta {
+    margin: 2.5rem 0 1rem;
+    padding: 1.25rem 1.25rem 1rem;
+    border: 1px solid #e6e2dc;
+    border-radius: 8px;
+    background: #fbfaf8;
+  }
+  .tantei-cta h2 { font-size: 1.05rem; margin: 0 0 0.75rem; }
+  .tantei-cta p { line-height: 1.8; margin: 0.5rem 0; }
+  .tantei-link { text-align: center; margin: 1rem 0 0.25rem; }
+  .tantei-link :global(a) {
+    display: inline-block;
+    background: #ff6f61;
+    color: #fff !important;
+    font-weight: 700;
+    padding: 0.75rem 1.8rem;
+    border-radius: 999px;
+    text-decoration: none !important;
+  }
+  .tantei-cta .cta-note { text-align: center; }
   .next-reads { margin-top: 2.5rem; }
   .next-reads li { margin-bottom: 1rem; }
   .next-reads p { color: #555; font-size: 0.9rem; margin: 0.2rem 0 0; }
